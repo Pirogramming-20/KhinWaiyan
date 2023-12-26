@@ -1,0 +1,4 @@
+Hi 
+
+I am currently doing git reset
+
