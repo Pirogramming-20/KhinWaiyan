@@ -84,16 +84,26 @@
         }
         #header{
             text-align: left;
+            position: relative;
         }
         #header-hamburger{
-            margin-top: 18px;
+            position: absolute;
+            top: 18px;
+            left: -10px;
             padding: 10px;
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;
         }
-        #header-hamburger:hover{
+        /* child of header-hamburger */
+        #header-hamburger:hover::before{
+            position: absolute;
+            content: '';
+            left: 1px; /*parent 로부터*/
+            top: 1px;
+            width: 44px;
+            height: 44px;
             background-color: var(--color_option_bg); /*Css variable*/
             border-radius: 50%;
         }
