@@ -18,11 +18,21 @@
             width: 1280px;
             background-color: yellow;
         }
+        #header{
+            text-align: left;
+        }
         #header-hamburger{
             margin-top: 18px;
-            background-color: blue;
-            width: 46px;
-            height: 46px;
+            padding: 10px;
+            display: inline-block;
+        }
+        #header-hamburger > div{
+            width: 26px;
+            height: 26px;
+            background-image: url(./sp_main.png);
+            background-repeat: no-repeat; /*이미지 반복안함*/
+            background-position: -335px -81px; /*left top*/
+            background-size: 433px 412px; /*이미지 크기*/
         }
         #main{
             height: 2000px;
@@ -33,7 +43,9 @@
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamburger"></div>
+                <div id="header-hamburger">
+                    <div></div> <!-- padding 넣을떄 여백 방지위해 자식으로 이미지를 빼-->
+                </div>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
