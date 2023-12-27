@@ -203,6 +203,23 @@
                     padding-left: 10px;
                     justify-content: center;
                     align-items: center;
+                    position: relative;
+                }
+                /* no focus then no display */
+                #search-svg::after {
+                    display: none;
+                }
+                /* a bar beside naver icon */
+                /* if there is 자식 is focused, it is also focused */
+                #search > form:focus-within #search-svg::after {
+                    content: '';
+                    width: 1px;
+                    height: 20px;
+                    background-color: #e4e4e4;
+                    position: absolute;
+                    display: inline-block;
+                    right: 0;
+                    top: 20px;
                 }
                 #search-svg svg{
                     width: 24px;
