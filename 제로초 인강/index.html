@@ -526,6 +526,8 @@
                     color: rgba(8,8,8,.5);
                     display: flex;
                     justify-content: flex-start;
+                    line-height: 23px;
+                    margin-bottom: 37px;
                 }
                 #main-newstand header .bold {
                     font-weight: bold;
@@ -534,6 +536,31 @@
                 #main-newstand-gray {
                     display: flex;
                     justify-content: flex-start;
+                    height: 40px;
+                    padding: 12px 20px;
+                    background-color: var(--color_option_bg);
+                    border-radius: 4px;
+                }
+                #main-newstand-grid {
+                    display: grid;
+                    width: 790px;
+                    height: 224px;
+                    background-color: var(--color_border_in);
+                    border: 1px solid var(--color_border_in);
+                    grid-gap: 1px;
+                    justify-content: center;
+                    align-items: center;
+                    grid-template-rows: repeat(4, 1fr);
+                    grid-template-columns: repeat(6, 1fr);
+                    border-radius: 4px;
+                    margin-top: 18px;
+                }
+                #main-newstand-grid > div{
+                    height: 100%;
+                    background-color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
                 #main-newstand a {
                     text-decoration: none;
