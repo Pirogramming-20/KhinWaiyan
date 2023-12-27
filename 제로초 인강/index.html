@@ -70,6 +70,9 @@
             --color_dic: #031f5f;
             --color_dic_rgb: 3,31,95;
         }
+        * box{
+            box-sizing: border-box; /*width = padding + border + content*/
+        }
         html, body{
             margin: 0;
             padding: 0;
@@ -86,18 +89,16 @@
             text-align: left;
             position: relative;
         }
-        #header-hamburger{
+        #header-hamburger, #header-naverpay, #header-notice{
             position: absolute;
             top: 18px;
-            left: -10px;
             padding: 10px;
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;
         }
-        /* child of header-hamburger */
-        #header-hamburger:hover::before{
+        #header-hamburger:hover::before, #header-naverpay:hover::before, #header-notice:hover::before{
             position: absolute;
             content: '';
             left: 1px; /*parent 로 부터*/
@@ -108,15 +109,42 @@
             background-color: var(--color_option_bg); /*Css variable*/
             border-radius: 50%;
         }
-        #header-hamburger > div{
+        #header-hamburger > div, #header-naverpay > div, #header-notice > div{
             width: 26px;
             height: 26px;
             position: relative; /*to use z-index*/
             z-index: 1; /*before 보다 더 높게*/
             background-image: url(./sp_main.png);
             background-repeat: no-repeat; /*이미지 반복안함*/
-            background-position: -335px -81px; /*left top*/
             background-size: 433px 412px; /*이미지 크기*/
+        }
+        #header-hamburger{
+            left: -10px;
+        }
+        /* child of header-hamburger */
+    
+        #header-hamburger > div{
+            background-position: -335px -81px; /*left top*/
+        }
+
+        #header-naverpay{
+            position: absolute;
+            top: 18px;
+            right: 42px;
+            padding: 7px;
+        }
+    
+        #header-naverpay > div{
+            width: 32px;
+            height: 32px;
+            background-position: -295px -177px; 
+        }
+        #header-notice{
+            right: -10px;
+        }
+    
+        #header-notice > div{
+            background-position: -335px -135px; 
         }
         #main{
             height: 2000px;
@@ -140,6 +168,19 @@
                     <!-- before -->
                     <div></div> <!-- padding 넣을떄 여백 방지위해 자식으로 이미지를 빼-->
                     <span class="blind">확장 영역</span>
+                    <!-- after -->
+                </button>
+                <button id="header-naverpay">
+                    <!-- before -->
+                    <div></div> <!-- padding 넣을떄 여백 방지위해 자식으로 이미지를 빼-->
+                    <span class="blind">네이버 페이</span>
+                    <!-- after -->
+                </button>
+                <button id="header-notice">
+                    <!-- before -->
+                    <div></div> <!-- padding 넣을떄 여백 방지위해 자식으로 이미지를 빼-->
+                    <span class="blind">알림</span>
+                    <!-- after -->
                 </button>
             </div>
             <div id="search"></div>
