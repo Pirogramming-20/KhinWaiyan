@@ -100,16 +100,19 @@
         #header-hamburger:hover::before{
             position: absolute;
             content: '';
-            left: 1px; /*parent 로부터*/
+            left: 1px; /*parent 로 부터*/
             top: 1px;
             width: 44px;
             height: 44px;
+            z-index: 0; /*only applicable between siblings*/
             background-color: var(--color_option_bg); /*Css variable*/
             border-radius: 50%;
         }
         #header-hamburger > div{
             width: 26px;
             height: 26px;
+            position: relative; /*to use z-index*/
+            z-index: 1; /*before 보다 더 높게*/
             background-image: url(./sp_main.png);
             background-repeat: no-repeat; /*이미지 반복안함*/
             background-position: -335px -81px; /*left top*/
@@ -118,6 +121,15 @@
         #main{
             height: 2000px;
         }
+        /* for 장애인 */
+        .blind{
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -125,7 +137,9 @@
         <div id="wrap-center">
             <div id="header">
                 <button id="header-hamburger">
+                    <!-- before -->
                     <div></div> <!-- padding 넣을떄 여백 방지위해 자식으로 이미지를 빼-->
+                    <span class="blind">확장 영역</span>
                 </button>
             </div>
             <div id="search"></div>
