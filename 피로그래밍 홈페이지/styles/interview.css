@@ -1,0 +1,139 @@
+.interview{
+    padding: 0 var(--offset);
+    width: min(100%, 1200px); 
+    margin: auto;
+}
+
+.interview > #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-bottom: var(--gutter);
+}
+
+.interview > div > h2{
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.interview > div > a::after {
+    /* arrow */
+    font-family: 'remixicon' ;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    content: '\ea6e';
+    margin-right: 5px; 
+    font-size: 1.6rem; 
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--gutter);
+}
+
+.box {
+    padding: var(--offset);
+    background-color: #333333;
+    margin-bottom: var(--gutter);
+    padding: var(--gutter);
+    border-radius: 10px;
+    position: relative;
+}
+
+.box > div{
+    display: flex;
+    gap: var(--gutter);
+}
+.box > div:nth-of-type(1){
+    margin-bottom: var(--gutter);
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--gutter);
+}
+
+#info > h3{
+    font-size: 1.8rem;
+}
+
+#info > p{
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: #2188b6;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#profile-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#profile-image > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.box > div > label {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    right: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+}
+.box > div > label > div {
+    height: 2px;
+    margin: 2px 0;
+    background-color: white;
+    transition: 0.3s;
+    width: 100%;
+}
+.box > div > label >div:nth-of-type(1) {
+    margin-right: auto;
+}
+
+.box > div > label > div:nth-of-type(3) {
+    margin-left: auto;
+}
+.box:hover label div:nth-of-type(1)  {
+    width: 50%; 
+}
+
+.box:hover label div:nth-of-type(3)  {
+    width: 50%;
+}
+
+
+
+
+.box:hover {
+    transform: translateY(-2px); 
+}
+
+.box:hover img {
+    transform: scale(1.3); 
+}
+
+
+@media screen and (max-width: 850px) {
+    #container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 600px) {
+    #container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
