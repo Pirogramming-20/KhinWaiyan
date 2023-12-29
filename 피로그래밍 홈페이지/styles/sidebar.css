@@ -4,11 +4,11 @@
     height: calc(100vh - var(--header-height));
     background-color: gray;
     position: fixed;
-    top: var(--header-height);
-    right: -300px;
+    top: var(--header-height); /* px from the viewport */
+    right: -300px; /* hidden */
     transition: 0.3s;
   }
   #hamburger-icon input:checked ~ .sidebar {
-    right: 0;
+    right: 0; /* visible */
   }
 }

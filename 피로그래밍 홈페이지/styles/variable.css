@@ -1,5 +1,5 @@
 :root {
-  --gutter: 1.6rem;
+  --gutter: 1.6rem; /* space between columns */
   --offset: 4rem;
   --green: #0bec12;
   --header-height: 9rem;

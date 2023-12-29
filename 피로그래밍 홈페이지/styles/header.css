@@ -5,7 +5,7 @@ body {
 }
 
 header > h1 {
-  font-size: 0;
+  font-size: 0; /* hide text */
 }
 header {
   display: flex;
@@ -13,8 +13,8 @@ header {
   align-items: center;
   padding: 0 var(--offset);
   height: var(--header-height);
-  width: min(100%, 1200px);
-  margin: auto;
+  width: min(100%, 1200px); /* parent less than 1200 then 100% */
+  margin: auto; /* L,R margin equal value */
 }
 .desktop-menu {
   display: flex;
