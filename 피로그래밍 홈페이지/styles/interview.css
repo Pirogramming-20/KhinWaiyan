@@ -1,31 +1,4 @@
-.interview{
-    padding: 0 var(--offset);
-    width: min(100%, 1200px); 
-    margin: auto;
-}
 
-.interview > #header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 40px;
-    margin-bottom: var(--gutter);
-}
-
-.interview > div > h2{
-    font-size: 2.2rem;
-    font-weight: bold;
-}
-
-.interview > div > a::after {
-    /* arrow */
-    font-family: 'remixicon' ;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    content: '\ea6e';
-    margin-right: 5px; 
-    font-size: 1.6rem; 
-}
 
 #container{
     display: grid;

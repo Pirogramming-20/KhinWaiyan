@@ -1,36 +1,3 @@
-#portfolio{
-  width: min(100%, 1200px); /* parent less than 1200 then 100% */
-  padding: 0 var(--offset);
-  margin: auto; 
-}
-
-#project-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  margin-bottom: var(--gutter);
-}
-
-#project-header > h2{
-  font-size: 2.2rem;
-  font-weight: bold;
-  vertical-align: baseline;
-}
-
-#prev-batch{
-    vertical-align: baseline;
-}
-#prev-batch::after {
-    /* Styles for the arrow */
-    font-family: 'remixicon' ;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    content: '\ea6e';
-    margin-right: 5px; 
-    font-size: 1.6rem; 
-}
-
 .project-box > li{
     display: flex;
     flex-wrap: wrap;
