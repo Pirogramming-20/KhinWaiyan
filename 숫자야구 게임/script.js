@@ -39,6 +39,11 @@ function check_numbers() {
         alert("모든 숫자를 입력해주세요.");
         return;
     }
+
+    if (!areInputsInRange(inputs)) {
+        alert("입력된 숫자는 0부터 9 사이의 숫자여야 합니다.");
+        return;
+    }
     
     //Compare input with randNumbers
     let strikes = 0, balls = 0;
@@ -100,5 +105,11 @@ function displayResult(inputs, strikes, balls) {
     }
     resultDisplay.appendChild(resultDiv);
 }
-
+// check if inputs are in the valid range
+function areInputsInRange(inputs) {
+    return inputs.every(input => {
+        const num = parseInt(input);
+        return !isNaN(num) && num >= 0 && num <= 9;
+    });
+}
 initGame();
