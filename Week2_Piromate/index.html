@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script defer src="script.js"></script>
+    <title>PIROMATE</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>piromate</h1>
+      </div>
+
+      <div class="calendar">
+        <ul id="cal">
+          <li>
+            <h2>월</h2>
+            <time>3</time>
+            <span>3</span>
+          </li>
+          <li>
+            <h2>화</h2>
+            <time>4</time>
+            <span>3</span>
+          </li>
+          <li>
+            <h2>수</h2>
+            <time>5</time>
+            <span>3</span>
+          </li>
+          <li>
+            <h2>목</h2>
+            <time>6</time>
+            <span id="today">0</span>
+          </li>
+          <li>
+            <h2>금</h2>
+            <time>7</time>
+            <span>3</span>
+          </li>
+          <li>
+            <h2>토</h2>
+            <time>8</time>
+            <span>3</span>
+          </li>
+          <li>
+            <h2>일</h2>
+            <time>9</time>
+            <span>3</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main">
+        <div class="category">
+          <p>동아리</p>
+          <div class="add-task-btn" id="addTaskBtn">
+            <i class="ri-add-line"></i>
+          </div>
+        </div>
+        <div class="todo">
+          <ul id="listContainer"></ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

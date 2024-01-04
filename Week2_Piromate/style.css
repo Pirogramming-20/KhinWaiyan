@@ -1,0 +1,173 @@
+:root {
+    --color-dark-grey: #282828;
+    --color-green: #4dff53;
+}
+
+  /* 기본 폰트 */
+@font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+    font-weight: 500;
+    ft-style: normal;
+}
+
+  /* 제목 폰트 */
+@font-face {
+    font-family: "PilseungGothic";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/PilseungGothic.woff2")
+    format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pretendard-Regular";
+    color: white;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    background-color: black;
+    width: 375px;
+    height: 100vh;
+    padding: 20px 25px;    
+}
+.title{
+    /* background-color: turquoise; */
+    margin-bottom: 30px;
+}
+.title > h1{
+    font-family: "PilseungGothic";
+    font-size: 24px;
+}
+
+#cal{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#cal > li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#cal > li > h2{
+    font-size: 18px;
+}
+
+
+#cal > li > time{
+    background-image: url(images/todo_icon.svg);
+    width: 22px;
+    height: 22px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#today{
+    border: 1px solid var(--color-green);
+    background-color: var(--color-green);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    color: black;
+    /* flex to itself since align inside*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category {
+    display: flex;
+    background-color: var(--color-dark-grey);
+    padding: 10px 15px;
+    width: max-content;
+    border-radius: 20px;
+    color: var(--color-green); /* color white covers this so its child do not inherit color green */
+    align-items: center;
+}
+
+.category > .add-task-btn {
+    margin-left: 5px;
+}
+
+.category > p,
+.add-task-btn > i{
+    color: var(--color-green);
+}
+
+.add-task-btn {
+    border: 1px solid var(--color-green);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-task-btn:hover {
+    background-color: var(--color-green);
+    transition: 0.2s;
+}
+
+.add-task-btn:hover > i {
+    color: var(--color-dark-grey);
+    transition: 0.2s;
+}
+
+#listContainer{
+    list-style: none;
+}
+
+#listContainer > li{
+    /* margin: 20px; */
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#listContainer > li::before{
+    content: "";
+    background-image: url(images/todo_icon.svg);
+    width: 22px;
+    height: 22px;
+    display: block; /* important block to itself */
+    background-size: cover;
+}
+
+#listContainer > li.checked::before{
+    content: '';
+    background-image: url(images/todo_icon_fill.svg);
+    width: 22px;
+    height: 22px;
+    display: block; 
+    background-size: cover;
+}
+
+#taskInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-dark-grey);
+    padding-bottom: 3px;
+    outline: 0;
+}
+
+#taskInput::placeholder {
+    font-size: 16px;
+}

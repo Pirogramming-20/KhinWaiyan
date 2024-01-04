@@ -1,0 +1,53 @@
+// html node(element)들을 불러온다.
+// 현재시간을 구해야하고
+// 종강일을 구한다음에
+// 종강일 - 현재시간
+// 일, 시간, 분, 초
+// 그 값을 html에다가 넣어준다.
+
+// 계산
+
+const dateNode = document.querySelector("#date");
+const hourNode = document.querySelector("#hour");
+const minuteNode = document.querySelector("#minute");
+const secondNode = document.querySelector("#second");
+
+const secondToMiliSec = 1000;
+const minuteToMiliSec = secondToMiliSec * 60;
+const hourToMiliSec = minuteToMiliSec * 60;
+const dayToMiliSec = hourToMiliSec * 24;
+
+function calculateDiffTime() {
+  const now = new Date();
+  const endDate = new Date("2024-02-20:00:00:00+0900");
+
+  const diffTime = endDate.getTime() - now.getTime();
+
+  const date = Math.floor(diffTime / dayToMiliSec);
+  const hour = Math.floor((diffTime % dayToMiliSec) / hourToMiliSec);
+  const minute = Math.floor((diffTime % hourToMiliSec) / minuteToMiliSec);
+  const second = Math.floor((diffTime % minuteToMiliSec) / secondToMiliSec);
+
+  return {
+    date,
+    hour,
+    minute,
+    second,
+  };
+}
+
+function countdown() {
+  const { date, hour, minute, second } = calculateDiffTime();
+
+  dateNode.innerText = String(date).padStart(2, "0");
+  hourNode.innerText = String(hour).padStart(2, "0");
+  minuteNode.innerText = String(minute).padStart(2, "0");
+  secondNode.innerText = String(second).padStart(2, "0");
+}
+
+// n초마다 한번씩 이 함수를 실행한다.
+setInterval(() => {
+  countdown();
+}, 1000);
+
+countdown();
