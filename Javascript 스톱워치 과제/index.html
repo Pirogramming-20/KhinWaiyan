@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <title>Stopwatch</title>
+  </head>
+  <body>
+    <header>
+      <h1><i class="fa-solid fa-stopwatch"></i>피로그래밍 스톱워치</h1>
+    </header>
+    <main>
+      <div class="watch_container">
+        <div class="display">
+          <span id="time">00:00</span>
+        </div>
+        <div class="control">
+          <button id="start">start</button>
+          <button id="stop">stop</button>
+          <button id="reset">reset</button>
+        </div>
+      </div>
+      <div class="record">
+        <ul class="record-list">
+          <li class="record-header">
+            <button class="check-button" id="selectAll">
+              <i class="fa-regular fa-circle"></i>
+            </button>
+            구간기록
+            <button id="trash-button">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </li>
+          <!-- <li class="record-item">
+            <button class="check-button">
+              <i class="fa-regular fa-circle"></i>
+            </button>
+            <div class="record-time">00:00</div>
+          </li>
+          </li> -->
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
