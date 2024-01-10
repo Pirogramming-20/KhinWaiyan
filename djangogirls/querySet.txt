@@ -1,0 +1,38 @@
+Showing all Post objects
+>>> from blog.models import Post
+>>> Post.objects.all()
+<QuerySet [<Post: My Django Project>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: Street Style Inspirations from Around the World>]>
+
+Create User Object
+>>> from django.contrib.auth.models import User
+>>> User.objects.all()
+<QuerySet [<User: admin>]>
+
+>>> me = User.objects.get(username='admin')
+>>> Post.objects.create(author=me, title='Sample title', text='Test')
+<Post: Sample title>
+
+Filtering objects by author
+>>> Post.objects.filter(author=me)
+<QuerySet [<Post: My Django Project>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: Street Style Inspirations from Around the World>, <Post: Sample title>, <Post: Sample title2>, <Post: Sample title3>]>
+
+Filtering objects by title
+>>> Post.objects.filter(title__contains='title')
+<QuerySet [<Post: Sample title>, <Post: Sample title2>, <Post: Sample title3>]>
+
+Filtering objects by published date
+>>> from django.utils import timezone
+>>> Post.objects.filter(published_date__lte=timezone.now())
+<QuerySet [<Post: My Django Project>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: Street Style Inspirations from Around the World>]>
+>>> Post.objects.filter(published_date__lte=timezone.now())
+<QuerySet [<Post: My Django Project>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: Street Style Inspirations from Around the World>]>
+
+Sorting by date
+>>> Post.objects.order_by('created_date')
+<QuerySet [<Post: My Django Project>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: Street Style Inspirations from Around the World>, <Post: Sample title>, <Post: Sample title2>, <Post: Sample title3>]>
+>>> Post.objects.order_by('-created_date')
+<QuerySet [<Post: Sample title3>, <Post: Sample title2>, <Post: Sample title>, <Post: Street Style Inspirations from Around the World>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: My Django Project>]>
+
+Linking two methods
+>>> Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+<QuerySet [<Post: My Django Project>, <Post: 5 Essential Fashion Tips Everyone Should Know>, <Post: Street Style Inspirations from Around the World>]>
