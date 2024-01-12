@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="?sort=title">Sort by Title</a> |
+<a href="?sort=rating">Sort by Rating</a> |
+<a href="?sort=running_time">Sort by Running Time</a>
+<div class="container">
+    {% for review in reviews %}
+    <div class="card">
+        <img class="card-image" src="{{ review.image_url }}" alt="Movie image">
+        <div class="card-content">
+            <h2 class="card-title"><a href="{% url 'review_detail' review.id %}">{{ review.title }}</a></h2>
+            <p class="card-year">개봉년도: {{ review.year }}</p>
+            <p class="card-year">장르: {{ review.genre }}</p>
+            <p class="card-rating">별점: {{ review.rating }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

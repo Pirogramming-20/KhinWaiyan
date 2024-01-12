@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Movie Reviews</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/review_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/review_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/review_edit.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header class="base-header">
+        {% if review_detail %}
+        <a href="{% url 'review_list'%}" class="mainHeader" >my<span>Movie</span>reviews</a>
+        {% else %}
+        <h1 >my<span>Movie</span>reviews</h1>
+        {% endif %}
+        <nav>
+            <a href="{% url 'review_create' %}" class="add-review-btn">Add a New review</a>
+        </nav>
+    </header>
+
+    <main class="base-main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+<footer>
+</footer>
+</body>
+</html>

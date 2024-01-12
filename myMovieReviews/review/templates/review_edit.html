@@ -1,0 +1,61 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="edit-container">
+        <h1>Movie reviews</h1>
+        <hr class="divider">
+        <form action="{% if review %}{% url 'review_edit' review.id %}{% else %}{% url 'review_create' %}{% endif %}" method="post">
+            {% csrf_token %}
+            {% comment %} <button type="submit">{% if review %}Save Changes{% else %}Submit Review{% endif %}</button> {% endcomment %}
+            <div class="form-group">
+                <label for="title">제목:</label>
+                <input type="text" id="title" name="title" value="{{ review.title|default_if_none:'' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="year">개봉년도:</label>
+                <!-- Assuming you have a release year in your form -->
+                <input type="text" id="year" name="year" value="{{ review.year|default_if_none:'' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">장르:</label>
+                <select id="genre" name="genre">
+                    <option value="Drama" {% if review.genre == "Drama" %}selected{% endif %}>Drama</option>
+                    <option value="Comedy" {% if review.genre == "Comedy" %}selected{% endif %}>Comedy</option>
+                    <option value="Action" {% if review.genre == "Action" %}selected{% endif %}>Action</option>
+                    <option value="Horror" {% if review.genre == "Horror" %}selected{% endif %}>Horror</option>
+                    <option value="Romance" {% if review.genre == "Romance" %}selected{% endif %}>Romance</option>
+                    <option value="Sci-Fi" {% if review.genre == "Sci-Fi" %}selected{% endif %}>Sci-Fi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="rating">별점:</label>
+                <input type="number" id="rating" name="rating" value="{{ review.rating|default_if_none:'' }}" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="running_time">러닝타임:</label>
+                <input type="number" id="running_time" name="running_time" value="{{ review.running_time|default_if_none:'' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="content">리뷰:</label>
+                <textarea id="content" name="content" required>{{ review.content|default_if_none:'' }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="director">감독:</label>
+                <input type="text" id="director" name="director" value="{{ review.director|default_if_none:'' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="actors">배우:</label>
+                <input type="text" id="actors" name="actors" value="{{ review.actors|default_if_none:'' }}" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="save-btn">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+
+
+

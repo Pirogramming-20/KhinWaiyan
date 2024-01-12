@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; 
+    background-color: #fff0f3;
+}
+
+.base-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+}
+.mainHeader{
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.mainHeader > span, .base-header > h1 > span{
+    color: #800f2f;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ffccd5;
+}
+
+.base-main{
+    margin: 4rem;
+}
+
+.review-list, .review-detail, .review-form {
+    width: 80%;
+    max-width: 1200px; 
+    margin: auto;
+}
+
+
+
+
+.review-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+.review-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto; 
+}

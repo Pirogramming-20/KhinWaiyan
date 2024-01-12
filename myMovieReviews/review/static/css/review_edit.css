@@ -1,0 +1,63 @@
+
+.edit-container {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-container h1 {
+    margin-bottom: 40px;
+    color: #333;
+    align-self: center;
+}
+.divider {
+    border: 1px solid #333; 
+    margin: 20px 0; 
+}
+
+.add-review-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #590d22;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.review-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+
+
+
+
+
