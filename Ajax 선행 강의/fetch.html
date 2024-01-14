@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <body>
     <article>
-        
+
     </article>
     <input type="button" value="fetch" onclick="
+    /*
     fetch('css').then(function(response){
         response.text().then(function(text){
             document.querySelector('article').innerHTML = text;
         })
     })
+    */
+    //Asychronous
+    function callbackme(text){
+        console.log('response');
+    }
+    fetch('html').then(callbackme)
+    console.log('1');
+    console.log('2');
     ">
 </body>
 </html>
