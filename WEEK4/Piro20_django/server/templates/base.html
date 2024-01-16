@@ -21,10 +21,10 @@
     {%endblock%}
   </main>
   <footer>
-    <a href="/users/create/" class="mx-2">
+    <a href="{% url 'users:create' %}" class="mx-2">
       <button type="button" class="btn btn-info">사용자 추가</button>
     </a>
-    <a href="/users/lists/" class="mx-2">
+    <a href="{% url "users:list"%}" class="mx-2">
       <button type="button" class="btn btn-warning">사용자 관리</button>
     </a>
   </footer>

@@ -1,5 +1,5 @@
 from django.db import models
-# from apps.local_users.models import LocalUser
+from apps.local_users.models import LocalUser
 
 # Create your models here.
 class Post(models.Model):
@@ -7,7 +7,7 @@ class Post(models.Model):
     content = models.CharField('내용',max_length=24)
     region = models.CharField('지역',max_length=24)
     # 작성자
-    # user = models.ForeignKey(LocalUser,verbose_name='작성자',on_delete=models.CASCADE)
+    user = models.ForeignKey(LocalUser, on_delete=models.CASCADE)
 
     price = models.IntegerField('가격',default=1000)
     # image

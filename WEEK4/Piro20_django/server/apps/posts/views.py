@@ -34,7 +34,10 @@ def create(request):
 
 def detail(request,pk):
     post = Post.objects.get(id=pk)
-    ctx = {'post':post}
+    user = post.user # 정참조
+    related_posts = user.post_set.all() # 역참조
+    ctx = {'post':post
+            ,'related_posts':related_posts}
     return render(request, 'posts/post_detail.html',ctx)
 
 
