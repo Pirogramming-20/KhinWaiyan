@@ -1,0 +1,222 @@
+@import "./reset.css";
+;
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    background: url('path_to_your_background_image.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.9; /* transparency */
+}
+
+.nav-item {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-item:first-child > span{
+    color: green;
+}
+
+.idea-container {
+    background: rgba(128, 128, 128, 0.5); /* Grey with transparency */
+    margin: 20px;
+    padding: 20px;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.idea-container-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    color: green;
+}
+
+.subtitle {
+    color: black;
+}
+
+.idea-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.idea {
+    background: skyblue;
+    margin: 10px;
+    padding: 15px;
+    width: calc(25% - 20px); /* Adjust width for 4 items per row */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.idea img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+
+.idea-image {
+    position: relative;
+    display: inline-block;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.favorite-btn i {
+    color: gray; /* initially empty */
+}
+
+.favorite-btn.favorited i {
+    color: yellow; /* colored yellow when favorited */
+}
+
+form {
+    align-self: flex-end; /* Aligns form to the right */
+}
+
+/* Additional styling for select element if needed */
+select {
+    padding: 5px;
+    margin-right: 10px; /* Add some margin to the right */
+}
+
+.interest-range button {
+    /* Style for your buttons */
+}
+
+.interest-range span {
+    /* Style for the interest value display */
+}
+.idea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Use at least the full height of the viewport */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%; /* Or a fixed width, e.g., 500px for a narrower form */
+    max-width: 600px; /* Maximum width of the form */
+    margin: 0 auto; /* This will center the form if it has a max-width */
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
+
+/* Style for the form fields and button */
+form input,
+form textarea,
+form select,
+form button {
+    margin-bottom: 1rem; /* Adds space between form fields */
+    width: 100%; /* Full width within the form */
+}
+
+/* Additional styles for the submit button */
+.btn-success {
+    cursor: pointer;
+    padding: 10px 15px; /* Adjust padding as needed */
+    /* Add any other styles for the button here */
+}
+
+
+
+/* Idea detail */
+.idea-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.idea-image img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.idea-info {
+    flex-grow: 1;
+}
+
+.title-and-favorite {
+    display: flex;
+    align-items: center;
+}
+
+.title-and-favorite .title {
+    margin-right: 10px;
+}
+
+.favorite-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* .card-box {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    margin-top: 10px;
+} */
+
+.action-buttons {
+    display: flex; /* Align children in a row */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Align children vertically */
+    gap: 10px; /* Add space between the children */
+}
+
+.action-buttons .btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.action-buttons .btn, .action-buttons form {
+    margin: 0; /* Override any default margins */
+    padding: 10px 15px; /* Adjust padding as needed */
+    /* Additional button styling */
+}
+
+.action-buttons form {
+    display: inline; /* Align form with inline elements */
+}
+.fa-solid.fa-star.favorited {
+    color: gold; /* Gold color for favorited */
+    /* Alternatively, you can use a hex color code or any other color */
+}
+
+.fa-solid.fa-star {
+    color: gray; /* Light grey for non-favorited, change as needed */
+}
+
+
+.title {
+    margin-right: 10px; /* Ensure there is some space between the title and the button */
+}

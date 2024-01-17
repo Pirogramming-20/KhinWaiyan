@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% block head %}
+  <title>idea_update</title>
+{% endblock %}
+
+{% block content %}
+<div class="idea-container">
+    <h1 class="title">Idea Update</h1>
+    <h2 class="subtitle">아이디어 등록 페이지입니다. 당신의 아이디어를 잊지 말고 기록하세요!</h2>
+  <form action="{% url 'ideas:update' pk%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+{% endblock %}

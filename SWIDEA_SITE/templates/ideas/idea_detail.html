@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="idea-detail-container">
+    <div class="idea-image">
+        <img src="{{ idea.image.url }}" alt="{{ idea.title }} Image">
+    </div>
+    <div class="idea-info">
+        <div class="title-and-favorite"> <!-- Updated class name -->
+            <h1 class="title">{{ idea.title }}</h1>
+            {% if idea.is_favorited %}
+                <i class="fa-solid fa-star favorited"></i>
+            {% else %}
+                <i class="fa-solid fa-star"></i>
+            {% endif %}
+        </div>
+        <div class="interest-level">
+            1.아이디어 관심도: <span id="interest-value-{{ idea.id }}">{{ idea.interest }}</span>
+        </div>
+        <div class="card-box">
+            3.아이디어 설명:
+            <p>{{ idea.content }}</p>
+        </div>
+        <div class="action-buttons">
+            <a href="{% url 'ideas:update' idea.id %}" class="btn">Update</a>
+            <a href="{% url 'ideas:list' %}" class="btn">List</a>
+            <form action="{% url 'ideas:delete' idea.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

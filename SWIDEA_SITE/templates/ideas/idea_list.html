@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="idea-container">
+
+    <h1 class="title">Idea List</h1>
+    <h2 class="subtitle">나의 아이디어를 잊지 말고 기록해보세요</h2>
+
+    <form method="get" action="{% url 'ideas:list' %}">
+        <select name="sort" onchange="this.form.submit()">
+            <option value="favorite" {% if current_sort == 'favorite' %}selected{% endif %}>Favorite Order</option>
+            <option value="name" {% if current_sort == 'name' %}selected{% endif %}>Name Order</option>
+            <option value="created" {% if current_sort == 'created' %}selected{% endif %}>Created Time Order</option>
+            <option value="newest" {% if current_sort == 'newest' %}selected{% endif %}>Newest First Order</option>
+        </select>
+    </form>
+    <div class="idea-list">
+        {% for idea in ideas %}
+        <div class="idea">
+            <div class="idea-image">
+                {% if idea.image.url != null and idea.image.url != ''%}
+                        <img src="{{idea.image.url}}" alt="아이디어 사진" class="card-img-top">
+                {% else %}
+                        <img src="{%static 'image/no_img.png'%}" alt="사진없음">
+                {% endif %}
+                {% comment %} <button class="favorite-btn" data-idea-id="{{ idea.id }}" onclick="toggleFavorite({{ idea.id }})">
+                    <i class="fa-solid fa-star"></i>
+                </button> {% endcomment %}
+                {% comment %} <button class="favorite-btn{% if idea.is_favorited %} favorited{% endif %}" 
+        data-idea-id="{{ idea.id }}" onclick="toggleFavorite({{ idea.id }})">
+    <i class="fa-solid fa-star"></i>
+</button> {% endcomment %}
+                <button class="favorite-btn {% if idea.is_favorited %}favorited{% endif %}" data-idea-id="{{ idea.id }}" onclick="toggleFavorite({{ idea.id }})">
+                    <i class="fa-solid fa-star"></i>
+                </button>
+
+            </div>
+            <a href= "{% url 'ideas:detail' idea.pk %}" class="idea_title"> {{ idea.title }}</a>
+            {% comment %} <p>{{ idea.devtool }}</p> {% endcomment %}
+            <div class="interest-range">
+                <span>아이디어 관심도: </span>
+                <button onclick="changeInterest({{ idea.id }}, -1)">-</button>
+                <span id="interest-value-{{ idea.id }}">{{ idea.interest }}</span>
+                <button onclick="changeInterest({{ idea.id }}, 1)">+</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
