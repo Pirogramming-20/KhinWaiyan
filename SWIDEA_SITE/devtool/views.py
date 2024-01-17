@@ -4,7 +4,12 @@ from .models import DevTool
 from .forms import DevToolForm
 
 def list(request):
-    devtools = DevTool.objects.all()
+    search_query = request.GET.get('search_txt', '')  # Get the search query from request
+    if search_query:
+        devtools = DevTool.objects.filter(name__icontains=search_query)  # Filter by name containing the search_query
+    else:
+        devtools = DevTool.objects.all()
+    
     return render(request, 'devtool/devtool_list.html', {'devtools': devtools})
 
 def create(request):

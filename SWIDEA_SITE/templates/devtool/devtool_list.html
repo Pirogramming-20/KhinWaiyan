@@ -2,6 +2,12 @@
 {% load static %}
 
 {% block content %}
+<div class="search-box">    
+  <form action="{% url 'devtool:list' %}" method="get">  
+    <input class="form-control mx-2" type="text" name="search_txt" placeholder="검색어..." value="{{ request.GET.search_txt }}" />
+    <input class="btn btn-outline-success mx-2" type="submit" value="검색" />      
+  </form>
+</div>
 <div class="idea-container">
 
     <h1 class="title">DevTool List</h1>

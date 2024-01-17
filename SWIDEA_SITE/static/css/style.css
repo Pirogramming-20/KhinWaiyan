@@ -266,3 +266,9 @@ form button {
     border: 1px solid #000;
     color: #000;
 }
+
+  
+  /* .search-box>form {
+    display: flex;
+    flex-direction: row;  
+  } */
