@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block head %}
+  <title>devtool_update</title>
+{% endblock %}
+
+{% block content %}
+<div class="idea-container">
+    <h1 class="title">DevTool Detail Update</h1>
+    <h2 class="subtitle">개발툴 세부내용 수정 페이지 입니다. 개발툴에 대해 수정사항이 있으면 고처보세요</h2>
+  <form action="{% url 'devtool:update' pk%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

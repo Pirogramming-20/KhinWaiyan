@@ -34,16 +34,16 @@ def list(request):
 
 
 
-def create(request):
-    if request.method == 'POST':
-        title = request.POST.get('title')
-        content = request.POST.get('content')
-        image = request.FILES.get('image')
-        idea = Idea(title=title, content=content, image=image)
-        idea.save()
-        return redirect('ideas:list')
-    else:
-        return render(request, 'ideas/idea_list.html')
+# def create(request):
+#     if request.method == 'POST':
+#         title = request.POST.get('title')
+#         content = request.POST.get('content')
+#         image = request.FILES.get('image')
+#         idea = Idea(title=title, content=content, image=image)
+#         idea.save()
+#         return redirect('ideas:list')
+#     else:
+#         return render(request, 'ideas/idea_list.html')
     
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="idea-container">
+
+    <h1 class="title">DevTool List</h1>
+    <h2 class="subtitle">개발툴 목록페이지입니다.자신이 사용가능한 개발들의 목록을 확인해 보세요.</h2>
+
+    <div class="devtool-list-container">
+        {% for devtool in devtools %}
+        <div class="devtool-row">
+            <a href= "{% url 'devtool:detail' devtool.pk %}" class="devtool-name"> {{ devtool.name }}</a>
+            <div class="devtool-type">{{ devtool.type }}</div>
+            <div class="devtool-description">{{ devtool.description }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if not forloop.last %}
+    <div class="devtool-row-separator"></div>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,13 +1,17 @@
 from django.db import models
+from devtool.models import DevTool
+
 
 # Create your models here.
 class Idea(models.Model):
     title = models.CharField('아이디어명',max_length=100)
     image = models.ImageField( blank=True, upload_to='ideas/%Y%m%d') # media/ideas/20210901/파일명
     content = models.TextField('아이디어 설명')
-    #개발툴
     #아이디어 관심도
     interest = models.IntegerField('아이디어 관심도',default=0)
+    #개발툴
+    devtool = models.ForeignKey(DevTool, on_delete=models.CASCADE,verbose_name='예상 개발 툴')
+
     created_date = models.DateTimeField('작성일',auto_created = True, auto_now_add=True)
     updated_date = models.DateTimeField('수정일',auto_created = True, auto_now=True)
     

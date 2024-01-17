@@ -12,11 +12,10 @@
 <body>
     <div class="navbar">
         <div class="nav-item">My <span>SW Idea</span> Manage</div>
-        {% comment %} <a href="{% url 'ideas:list' %}" class="nav-item">My <span>SW Idea</span> Manage</a> {% endcomment %}
-        <a href="{% url 'ideas:create' %}" class="nav-item">Idea Create</a>
-        <a href="{% url 'ideas:list' %}" class="nav-item">Idea List</a>
-        <a href="{% url 'ideas:create' %}" class="nav-item">DevTool Create</a>
-        <a href="{% url 'ideas:list' %}" class="nav-item">DevTool List</a>
+        <a href="{% url 'ideas:create' %}" class="nav-item">아이디어 등록</a>
+        <a href="{% url 'ideas:list' %}" class="nav-item">아이디어 관리</a>
+        <a href="{% url 'devtool:create' %}" class="nav-item">개발툴 등록</a>
+        <a href="{% url 'devtool:list' %}" class="nav-item">개발툴 관리</a>
     </div>
     {% block content %}
     {% endblock %}

@@ -220,3 +220,33 @@ form button {
 .title {
     margin-right: 10px; /* Ensure there is some space between the title and the button */
 }
+
+
+/* Devtool */
+
+.devtool-list-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Adjust the width as necessary */
+    max-width: 1200px; /* Set a max-width for larger screens */
+    margin: auto;
+}
+
+.devtool-row {
+    display: flex;
+    border-bottom: 1px solid #ccc; /* Add a separator line between rows */
+    padding: 10px;
+}
+
+.devtool-name, .devtool-type, .devtool-description {
+    flex: 1; /* Each child will take up equal space */
+    padding: 5px 10px; /* Spacing inside each cell */
+}
+
+
+
+.devtool-row-separator {
+    height: 1px; /* Height of the line break */
+    background-color: #ccc; /* Color of the line break */
+    margin: 10px 0; /* Space above and below the line break */
+}

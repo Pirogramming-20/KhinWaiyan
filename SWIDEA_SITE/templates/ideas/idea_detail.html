@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="idea-container">
+
+    <h1 class="title">Idea Detail</h1>
+    <h2 class="subtitle">아이디어 세부네용 페이지입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</h2>
 <div class="idea-detail-container">
     <div class="idea-image">
         <img src="{{ idea.image.url }}" alt="{{ idea.title }} Image">
@@ -15,20 +19,28 @@
             {% endif %}
         </div>
         <div class="interest-level">
-            1.아이디어 관심도: <span id="interest-value-{{ idea.id }}">{{ idea.interest }}</span>
+            1.아이디어 관심도: <div id="interest-value-{{ idea.id }}">{{ idea.interest }}</div>
         </div>
         <div class="card-box">
+            2.예상 개발 툴:
+            <a href="{% url 'devtool:detail' idea.devtool.id %}"> 
+                <p>{{ idea.devtool }}</p> 
+            </a>
+            <div class="idea_content"> 
             3.아이디어 설명:
             <p>{{ idea.content }}</p>
+            </div>
         </div>
         <div class="action-buttons">
-            <a href="{% url 'ideas:update' idea.id %}" class="btn">Update</a>
-            <a href="{% url 'ideas:list' %}" class="btn">List</a>
+            <a href="{% url 'ideas:update' idea.id %}" class="btn">수정</a>
+            <a href="{% url 'ideas:list' %}" class="btn">목록</a>
             <form action="{% url 'ideas:delete' idea.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="btn">Delete</button>
+                <button type="submit" class="btn">삭제</button>
             </form>
         </div>
     </div>
 </div>
+</div>
+
 {% endblock %}
