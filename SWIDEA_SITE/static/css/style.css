@@ -52,7 +52,6 @@
     background: skyblue;
     margin: 10px;
     padding: 15px;
-    width: calc(25% - 20px); /* Adjust width for 4 items per row */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -249,4 +248,21 @@ form button {
     height: 1px; /* Height of the line break */
     background-color: #ccc; /* Color of the line break */
     margin: 10px 0; /* Space above and below the line break */
+}
+
+
+/* Pagination */
+.idea-pagination a {
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+}
+
+.idea-pagination strong {
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #000;
+    color: #000;
 }

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.db.models import Case, When, Count, IntegerField
 from .forms import IdeaForm
-
+from django.core.paginator import Paginator
 
 def list(request):
 
@@ -26,25 +26,14 @@ def list(request):
 
     for idea in ideas:
         idea.is_favorited = idea.id in favorited_ideas_ids
-    
+    paginator = Paginator(ideas, 4)  # Show 4 ideas per page
+    page_number = request.GET.get('page')
+    ideas = paginator.get_page(page_number)
+
     
     context = {'ideas': ideas, 'current_sort': sort_by}
     return render(request, 'ideas/idea_list.html', context)
 
-
-
-
-# def create(request):
-#     if request.method == 'POST':
-#         title = request.POST.get('title')
-#         content = request.POST.get('content')
-#         image = request.FILES.get('image')
-#         idea = Idea(title=title, content=content, image=image)
-#         idea.save()
-#         return redirect('ideas:list')
-#     else:
-#         return render(request, 'ideas/idea_list.html')
-    
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Idea, IdeaStar

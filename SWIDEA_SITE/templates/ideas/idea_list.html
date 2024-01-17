@@ -42,5 +42,23 @@
         </div>
         {% endfor %}
     </div>
+    <div class="idea-pagination">
+        {% if ideas.has_previous %}
+        <a href="?page={{ ideas.previous_page_number }}{% if current_sort %}&sort={{ current_sort }}{% endif %}">&lsaquo; Prev</a>
+        {% endif %}
+    
+        {% for num in ideas.paginator.page_range %}
+        {% if ideas.number == num %}
+            <strong>{{ num }}</strong>
+        {% else %}
+            <!-- to preserve chosen sort order -->
+            <a href="?page={{ num }}{% if current_sort %}&sort={{ current_sort }}{% endif %}">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if ideas.has_next %}
+            <a href="?page={{ ideas.next_page_number }}{% if current_sort %}&sort={{ current_sort }}{% endif %}">Next &rsaquo;</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
