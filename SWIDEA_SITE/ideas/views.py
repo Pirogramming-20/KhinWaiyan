@@ -38,7 +38,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Idea, IdeaStar
 
-@csrf_exempt
 def toggle_favorite(request):
     if request.method == 'POST':
         idea_id = request.POST.get('idea_id')
@@ -57,7 +56,6 @@ def toggle_favorite(request):
     return JsonResponse({'success': False}, status=400)
 
 
-@csrf_exempt
 def change_interest(request):
     if request.method == 'POST':
         idea_id = request.POST.get('idea_id')

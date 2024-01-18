@@ -25,12 +25,9 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    {% comment %} <script type="text/javascript">
-        var csrfToken = "{{ csrf_token }}";
-    </script>
-    {% endcomment %}
     <script src="{% static 'js/script.js' %}"></script>
-
-
+    <script type="text/javascript">
+        const csrfToken = "{{ csrf_token }}";
+    </script>
 </body>
 </html>

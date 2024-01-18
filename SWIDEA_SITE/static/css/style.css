@@ -1,12 +1,29 @@
 @import "./reset.css";
-;
 
+@font-face{
+    font-family:'DNFBitBitv2';
+    font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
+}
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* base.html */
+/* navigation bar */
 .navbar {
-    display: flex;
     justify-content: space-evenly;
-    background: url('path_to_your_background_image.jpg') no-repeat;
+    background-color: #ff758f;
+}
+
+body{
+    background: url('../image/bg.jpg') no-repeat;
     background-size: cover;
-    opacity: 0.9; /* transparency */
+    opacity: 0.9; 
+    font-family: 'JalnanGothic', sans-serif;
+
 }
 
 .nav-item {
@@ -16,30 +33,22 @@
 }
 
 .nav-item:first-child > span{
-    color: green;
+    color: #ffccd5;
 }
 
+/* container */
 .idea-container {
-    background: rgba(128, 128, 128, 0.5); /* Grey with transparency */
-    margin: 20px;
+    background: rgba(247, 149, 167, 0.5); 
+    margin: 180px;
     padding: 20px;
-    /* text-align: center; */
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.idea-container-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.title {
-    color: green;
-}
 
-.subtitle {
-    color: black;
+.title, .subtitle{
+    color: #001845;
 }
 
 .idea-list {
@@ -49,7 +58,7 @@
 }
 
 .idea {
-    background: skyblue;
+    background: #bde0fe;
     margin: 10px;
     padding: 15px;
     box-sizing: border-box;
@@ -83,63 +92,46 @@
 }
 
 .favorite-btn i {
-    color: gray; /* initially empty */
+    color: gray; 
 }
 
 .favorite-btn.favorited i {
-    color: yellow; /* colored yellow when favorited */
+    color: yellow; 
 }
 
 form {
-    align-self: flex-end; /* Aligns form to the right */
+    align-self: flex-end; 
 }
 
-/* Additional styling for select element if needed */
+
 select {
     padding: 5px;
-    margin-right: 10px; /* Add some margin to the right */
+    margin-right: 10px; 
 }
 
-.interest-range button {
-    /* Style for your buttons */
-}
 
-.interest-range span {
-    /* Style for the interest value display */
-}
-.idea-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; /* Use at least the full height of the viewport */
-    padding: 20px;
-    box-sizing: border-box;
-}
 
 form {
-    width: 100%; /* Or a fixed width, e.g., 500px for a narrower form */
-    max-width: 600px; /* Maximum width of the form */
-    margin: 0 auto; /* This will center the form if it has a max-width */
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
     align-items: right;
 }
 
-/* Style for the form fields and button */
 form input,
 form textarea,
 form select,
 form button {
-    margin-bottom: 1rem; /* Adds space between form fields */
-    width: 100%; /* Full width within the form */
+    margin-bottom: 1rem; 
+    width: 100%; 
 }
 
-/* Additional styles for the submit button */
+
 .btn-success {
     cursor: pointer;
-    padding: 10px 15px; /* Adjust padding as needed */
-    /* Add any other styles for the button here */
+    padding: 10px 15px; 
 }
 
 
@@ -177,19 +169,13 @@ form button {
     border: none;
 }
 
-/* .card-box {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    margin-top: 10px;
-} */
+
 
 .action-buttons {
-    display: flex; /* Align children in a row */
-    justify-content: center; /* Center children horizontally */
-    align-items: center; /* Align children vertically */
-    gap: 10px; /* Add space between the children */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
 }
 
 .action-buttons .btn {
@@ -198,26 +184,24 @@ form button {
     cursor: pointer;
 }
 .action-buttons .btn, .action-buttons form {
-    margin: 0; /* Override any default margins */
-    padding: 10px 15px; /* Adjust padding as needed */
-    /* Additional button styling */
+    margin: 0; 
+    padding: 10px 15px; 
 }
 
 .action-buttons form {
-    display: inline; /* Align form with inline elements */
+    display: inline; 
 }
 .fa-solid.fa-star.favorited {
-    color: gold; /* Gold color for favorited */
-    /* Alternatively, you can use a hex color code or any other color */
+    color: gold; 
 }
 
 .fa-solid.fa-star {
-    color: gray; /* Light grey for non-favorited, change as needed */
+    color: gray; 
 }
 
 
 .title {
-    margin-right: 10px; /* Ensure there is some space between the title and the button */
+    margin-right: 10px; 
 }
 
 
@@ -226,28 +210,28 @@ form button {
 .devtool-list-container {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Adjust the width as necessary */
-    max-width: 1200px; /* Set a max-width for larger screens */
+    width: 100%; 
+    max-width: 1200px; 
     margin: auto;
 }
 
 .devtool-row {
     display: flex;
-    border-bottom: 1px solid #ccc; /* Add a separator line between rows */
+    border-bottom: 1px solid #ccc; 
     padding: 10px;
 }
 
 .devtool-name, .devtool-type, .devtool-description {
-    flex: 1; /* Each child will take up equal space */
-    padding: 5px 10px; /* Spacing inside each cell */
+    flex: 1; 
+    padding: 5px 10px; 
 }
 
 
 
 .devtool-row-separator {
-    height: 1px; /* Height of the line break */
-    background-color: #ccc; /* Color of the line break */
-    margin: 10px 0; /* Space above and below the line break */
+    height: 1px; 
+    background-color: #ccc; 
+    margin: 10px 0; 
 }
 
 
@@ -267,8 +251,3 @@ form button {
     color: #000;
 }
 
-  
-  /* .search-box>form {
-    display: flex;
-    flex-direction: row;  
-  } */

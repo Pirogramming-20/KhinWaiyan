@@ -5,8 +5,7 @@ function toggleFavorite(ideaId) {
         type: "POST",
         data: {
             'idea_id': ideaId,
-            'csrfmiddlewaretoken': '{{ csrf_token }}'
-            // 'csrfmiddlewaretoken': csrfToken
+            'csrfmiddlewaretoken': csrfToken
         },
         success: function(response) {
             if (response.success) {
@@ -35,7 +34,7 @@ function changeInterest(ideaId, change) {
         data: {
             'idea_id': ideaId,
             'change': change,
-            'csrfmiddlewaretoken': '{{ csrf_token }}'
+            'csrfmiddlewaretoken': csrfToken
         },
         success: function(response) {
             if (response.success) {
