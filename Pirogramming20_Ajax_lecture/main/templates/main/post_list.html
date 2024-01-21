@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main__container">
+        {% for post in posts %}
+            <div class="card post__container post-id-{{ post.id }}">
+                <div class="card-body">
+                    <div class="post__img">
+                        <img src="{% static 'img/img_lights.jpg' %}" alt="...">
+                    </div>
+                    <div class="card-title">{{ post.title }}</div>
+                    <div class="card-text">{{ post.content}}</div>
+                    <div class="btn btn-primary post__like" onclick="onClickLike({{ post.id }}, 'like')">Like {{ post.like }}</div>
+                    <div class="btn btn-primary post__dislike" onclick="onClickLike({{ post.id }}, 'dislike')" >Dislike {{ post.dislike }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block extra %}
+{% comment %} Vanilla JavaScript {% endcomment %}
+{% comment %} <script>
+    //create xml or http object
+    const requestLike = new XMLHttpRequest();
+    
+    const onClickLike = (id,type) => {
+        //open a new connection, using the requestLike object 
+        const url = "/like_ajax/";
+        requestLike.open("POST", url, true);
+        //set the request header
+        requestLike.setRequestHeader(
+            "Content-Type", "application/x-www-form-urlencoded" // different according to type
+        );
+        //send the request to server
+        requestLike.send(JSON.stringify({id:id, type:type}));
+    }
+
+    // 0, 1, 2, 3, 4 변할 때마다 호출
+    requestLike.onreadystatechange = () => {
+        if (requestLike.readyState === XMLHttpRequest.DONE){
+            if (requestLike.status < 400){
+                // change the display of like number
+                const {id, type} = JSON.parse(requestLike.response); // {id: 1, type: "like"}
+                const element = document.querySelector(`.post-id-${id} .post__${type}`);
+                const originHTML = element.innerHTML; // Like 1
+                const [buttonType, num] = originHTML.split(" ");
+                const count = Number(num) + 1;
+                element.innerHTML = `${buttonType} ${count}`;
+                element.innerHTML = `${buttonType} ${count}`;
+            }
+        }
+    }
+</script> {% endcomment %}
+
+{% comment %} <script>
+    const onClickLike = async(id, type) => {
+        // url 정하기
+        const url = "/like_ajax/";
+        // fetch
+        const res = await fetch(url, {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json",
+            },
+            // send the request to server
+            body: JSON.stringify({id:id, type:type}),
+            });
+            const {id: postId, type: button } = await res.json();
+            likeHandleResponse(postId, button);
+    }
+
+    // update the screen
+    const likeHandleResponse = (id, type) => {
+        const element = document.querySelector(`.post-id-${id} .post__${type}`);
+        const originHTML = element.innerHTML; // Like 1
+        const [buttonType, num] = originHTML.split(" ");
+        const count = Number(num) + 1;
+        element.innerHTML = `${buttonType} ${count}`;
+    }
+</script> {% endcomment %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const onClickLike = async(id,type) => {
+        const url = "/like_ajax/";
+        const { data } = await axios.post(url, {id, type});
+        likeHandleResponse(data.id, data.type);
+    }
+
+    // update the screen
+    const likeHandleResponse = (id, type) => {
+        const element = document.querySelector(`.post-id-${id} .post__${type}`);
+        const originalHTML = element.innerHTML;
+        const [buttonType, num] = originalHT
+
+    }
+</script>
+
+{% endblock %}
+
+
+
+{% comment %} originally JS was sync so async keyword changes sync to async, await is to make the function inside async works like sync / here fetch waits until the response is received {% endcomment %}
+{% comment %} await is always used along with async {% endcomment %}
