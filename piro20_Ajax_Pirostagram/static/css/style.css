@@ -1,0 +1,24 @@
+@import "./reset.css";
+@import "./home.css";
+
+body{
+    display: flex;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 25%;
+    background-color: #f3f3f3; 
+    border-right: 2px solid #cfc8c8; /* divider */
+}
+
+
+.navbar button{
+    background: none;
+    border: none;
+    text-decoration: none;
+    padding: 40px ;
+    cursor: pointer;
+}

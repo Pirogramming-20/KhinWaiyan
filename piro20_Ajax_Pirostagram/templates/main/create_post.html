@@ -1,0 +1,7 @@
+<!-- create_post.html -->
+<form method="post" action="{% url 'create_post' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="image" accept="image/*">
+    <input type="text" name="caption" placeholder="Caption">
+    <button type="submit">Create Post</button>
+</form>

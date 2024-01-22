@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in posts %}
+    <div class="post" id="post-{{ post.id }}">
+        <h2>{{ post.user.username }}</h2>
+        {% if post.user == request.user %}
+            <!-- Only show this button to the user who created the post -->
+            <button onclick="deletePost({{ post.id }})">Delete Post</button>
+        {% endif %}
+        <img src="{{ post.image.url }}" alt="포스트 사진" >
+        <div class="icons">
+            <!-- Comment button -->
+            {% comment %} <i class="fa-regular fa-comment" onclick="toggleCommentBox({{ post.id }})"></i> {% endcomment %}
+            {% comment %} <i class="fa-regular fa-comment"></i> {% endcomment %}
+
+            <!-- Like button -->
+            <button class="like-btn" data-post-id="{{ post.id }}" onclick="onClickLike({{ post.id }})">
+                {% if post.is_liked %}
+                    <i class="fa-solid fa-heart"></i>
+                {% else %}
+                    <i class="fa-regular fa-heart"></i>
+                {% endif %}
+            </button>
+    
+        </div>
+        <span class="like-count" data-post-id="{{ post.id }}">{{ post.likes.count }} likes</span>
+        <!-- Comment Section -->
+        {% comment %} <div class="comments" id="comments{{ post.id }}" style="display:none;"> {% endcomment %}
+            <div class="comments" id="comments{{ post.id }}" >
+            <!-- Comment Form -->
+            <form id="comment-form-{{ post.id }}" onsubmit="addComment({{ post.id }}); ">
+                <i class="fa-regular fa-comment"></i>
+                <input type="text" name="content" placeholder="Add a comment...">
+                <button type="submit">Post</button>
+            </form>
+            <!-- Comments List -->
+            <div id="comments-list-{{ post.id }}">
+                {% for comment in post.comments.all %}
+                    <div class="comment" id="comment-{{ comment.id }}">
+                        <span>{{ comment.user.username }}: {{ comment.content }}</span>
+                        {% if comment.user == request.user %}
+                            <button onclick="deleteComment({{ post.id }}, {{ comment.id }})">Delete</button>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+
