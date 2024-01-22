@@ -13,7 +13,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('main:home')  # Redirect to a success page.
+            return redirect('main:home')  
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
@@ -53,24 +53,26 @@ def toggle_like(request):
 @csrf_exempt
 def add_comment(request):
     if request.method == 'POST' and request.user.is_authenticated:
-        post_id = request.POST.get('post_id')
-        content = request.POST.get('content')
+        data = json.loads(request.body)
+        post_id = data.get('post_id')
+        content = data.get('content')
         post = Post.objects.get(pk=post_id)
         comment = Comment.objects.create(user=request.user, post=post, content=content)
-        return JsonResponse({'comment_id': comment.id, 'username': request.user.username, 'content': content})
+        return JsonResponse({'comment_id': comment.id,'post_id': post_id, 'username': request.user.username, 'content': content})
 
 @csrf_exempt
 def delete_comment(request):
     if request.method == 'POST' and request.user.is_authenticated:
-        comment_id = request.POST.get('comment_id')
+        data = json.loads(request.body)
+        comment_id = data.get('comment_id')
         comment = Comment.objects.get(pk=comment_id, user=request.user)
         comment.delete()
-        return JsonResponse({'success': True})
+        return JsonResponse({'success': True, 'comment_id': comment_id, 'post_id': comment.post.id})
     
 
 from django.contrib.auth.decorators import login_required
 
-@login_required  # Optional: ensure only logged-in users can create posts
+@login_required  #  ensure only logged-in users can create posts
 def create_post(request):
     if request.method == 'POST':
         image = request.FILES.get('image')  # Get the uploaded image
@@ -78,9 +80,9 @@ def create_post(request):
         
         # Create and save the new post
         post = Post.objects.create(user=user, image=image)
-        return redirect('main:home')  # Redirect to the home page or wherever you prefer
+        return redirect('main:home')  
         
-    return render(request, 'main/create_post.html')  # Render the form template if not a POST request
+    return render(request, 'main/create_post.html')  
 
 
 @csrf_exempt
