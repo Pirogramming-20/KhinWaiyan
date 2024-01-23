@@ -1,8 +1,16 @@
 @import "./reset.css";
 @import "./home.css";
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body{
     display: flex;
+    font-family: 'GmarketSansMedium';
+    font-weight: 500;
 }
 .navbar{
     display: flex;
@@ -16,9 +24,18 @@ body{
 
 
 .navbar button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: none;
     border: none;
     text-decoration: none;
     padding: 40px ;
     cursor: pointer;
+}
+
+.content {
+    float: left;
+    width: 80%;
+    padding: 100px;
 }

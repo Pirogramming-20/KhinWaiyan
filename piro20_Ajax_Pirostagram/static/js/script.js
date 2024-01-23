@@ -54,7 +54,7 @@ const requestDeleteComment = new XMLHttpRequest();
                 commentsList.insertAdjacentHTML( 'beforeend',
                 `<div class="comment" id="comment-${response.comment_id}">
                     <span>${response.username}: ${response.content}</span>
-                    <button onclick="deleteComment(${response.post_id}, ${response.comment_id})">Delete</button>
+                    <button onclick="deleteComment(${response.post_id}, ${response.comment_id})"><i class="fa-solid fa-trash"></i></button>
                 </div>`
             );
             document.getElementById("comment-form-" + response.post_id).reset(); // Clear input field
@@ -75,8 +75,8 @@ const requestDeleteComment = new XMLHttpRequest();
     }
 
     requestDeleteComment.onreadystatechange = () => {
-        if (requestComment.readyState === XMLHttpRequest.DONE) {
-            if (requestComment.status < 400){
+        if (requestDeleteComment.readyState === XMLHttpRequest.DONE) {
+            if (requestDeleteComment.status < 400){
                 const response = JSON.parse(requestDeleteComment.response);
                 const comment = document.getElementById("comment-" + response.comment_id);
                 if (comment) {

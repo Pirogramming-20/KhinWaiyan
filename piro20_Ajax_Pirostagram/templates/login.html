@@ -1,4 +1,5 @@
 
+{%load static%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    <a href="{% url 'main:signup' %}">Sign up</a>
+    <div class="login-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">로그인</button>
+        </form>
+        <a href="{% url 'main:signup' %}">회원가입하기</a>
+    </div>
 </body>
 </html>
